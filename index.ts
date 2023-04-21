@@ -1,4 +1,4 @@
-function spherical_coordinates(x: number, y: number): number[] {
+function sphericalCoordinates(x: number, y: number): number[] {
     return [Math.cos(x) * Math.cos(y), Math.sin(x) * Math.cos(y), Math.sin(y)];
 }
 
@@ -9,7 +9,7 @@ function NX(n: number, x: number): number[][] {
     for (let j = 0; j < n; j++) {
         const s = start + j * increment;
         pts.push(
-            spherical_coordinates(
+            sphericalCoordinates(
                 s * x,
                 Math.PI / 2 * Math.sign(s) * (1 - Math.sqrt(1 - Math.abs(s)))
             )
@@ -19,6 +19,6 @@ function NX(n: number, x: number): number[][] {
     return pts;
 }
 
-export function generate_points(n: number): number[][] {
+export function generatePoints(n: number): number[][] {
     return NX(n, 0.1 + 1.2 * n);
 }
