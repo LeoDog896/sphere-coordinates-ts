@@ -1,9 +1,15 @@
-function sphericalCoordinates(x: number, y: number): number[] {
-    return [Math.cos(x) * Math.cos(y), Math.sin(x) * Math.cos(y), Math.sin(y)];
+function sphericalCoordinates(x: number, y: number): Point {
+    return [
+        Math.cos(x) * Math.cos(y),
+        Math.sin(x) * Math.cos(y),
+        Math.sin(y)
+    ];
 }
 
-function NX(n: number, x: number): number[][] {
-    const pts: number[][] = [];
+type Point = [x: number, y: number, z: number];
+
+function NX(n: number, x: number): Point[] {
+    const pts: Point[] = [];
     const start = -1 + 1 / (n - 1);
     const increment = (2 - 2 / (n - 1)) / (n - 1);
     for (let j = 0; j < n; j++) {
@@ -19,6 +25,4 @@ function NX(n: number, x: number): number[][] {
     return pts;
 }
 
-export function generatePoints(n: number): number[][] {
-    return NX(n, 0.1 + 1.2 * n);
-}
+export const generatePoints = (n: number): Point[] => NX(n, 0.1 + 1.2 * n);
