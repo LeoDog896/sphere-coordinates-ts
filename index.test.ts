@@ -1,4 +1,4 @@
-import { generatePoints } from "./mod.ts"
+import { generatePoints } from "./index.ts"
 
 Deno.test("test", () => {
     console.log(generatePoints(3))
